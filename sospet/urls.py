@@ -14,10 +14,11 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
+from django.contrib.staticfiles.urls import static, staticfiles_urlpatterns
 from django.urls import path
 from django.views.generic import RedirectView
-
 from core import views
+from . import settings
 
 
 urlpatterns = [
@@ -28,3 +29,5 @@ urlpatterns = [
     path('logout/', views.logout_user),
     path('', RedirectView.as_view(url='list/all/'))
 ]
+urlpatterns += staticfiles_urlpatterns()
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_URL)

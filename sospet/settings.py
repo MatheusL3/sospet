@@ -27,6 +27,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+MEDIA_ROOT = BASE_DIR / 'media'
+MEDIA_URL = 'media/'
 
 # Application definition
 
@@ -55,7 +57,7 @@ ROOT_URLCONF = 'sospet.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR /'sospet/templates'],
+        'DIRS': [BASE_DIR / 'sospet/templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
