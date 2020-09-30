@@ -27,8 +27,11 @@ urlpatterns = [
     path('pet/all/', views.list_all_pets),
     path('pet/register/', views.register_pet),
     path('pet/register/submit/', views.set_pet),
-    path('pet/detail/<id>/', views.pet_detail),
-    path('pet/delete/<id>/', views.pet_delete),
+    # path('pet/detail/<id>/', views.pet_detail),
+    # path('pet/delete/<id>/', views.pet_delete),
+
+    path('pet/<action>/<id>/',views.pet_generic),
+
     path('pet/user/', views.list_user_pets),
     path('login/submit/', views.submit_login),
     path('logout/', views.logout_user),

@@ -77,11 +77,38 @@ def list_user_pets(request):
     return render(request, 'list.html', {'pet': pet})
 
 
+# @login_required(login_url='/login/')
+# def pet_detail(request, id):
+#     pet = Pet.objects.get(active=True, id=id)
+#     print(pet.description)
+#     return render(request, 'detail.html',  {'pet': pet})
+
+
 @login_required(login_url='/login/')
-def pet_detail(request, id):
+def pet_generic(request, action, id):
     pet = Pet.objects.get(active=True, id=id)
-    print(pet.description)
-    return render(request, 'detail.html',  {'pet': pet})
+
+    def detail():
+        print(pet.description)
+        return render(request, 'detail.html', {'pet': pet})
+
+    def delete():
+        if pet and pet.user == request.user:
+            status = Pet.delete(pet)
+            if status:
+                print('cachorro excluido com sucesso')
+            else:
+                print('NAO FOI POSSÍVEL EXCLUIR')
+        else:
+            print('REGISTRO INEXISTENTE OU ESSE CACHORRO NÃO É SEU')
+        return redirect('/')
+
+    actions = {
+        "detail": detail,
+        "delete": delete,
+    }
+
+    return actions.get(action)()
 
 
 @login_required(login_url='/login/')
