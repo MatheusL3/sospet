@@ -123,4 +123,3 @@ def pet_delete(request, id):
     else:
         print('REGISTRO INEXISTENTE OU ESSE CACHORRO NÃO É SEU')
     return redirect('/')
-
