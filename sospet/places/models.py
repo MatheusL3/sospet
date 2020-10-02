@@ -4,7 +4,6 @@ from django.db import models
 
 class Places(models.Model):
     title = models.CharField( max_length=100),
-    state = models.CharField( max_length=100),
     slug = models.SlugField(),
     description = models.TextField(blank=True),
     created_at = models.DateTimeField(auto_now_add=True),
