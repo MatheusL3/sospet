@@ -24,15 +24,15 @@ from . import settings
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('login/', views.login_user),
-    path('pet/all/', views.list_all_pets),
-    path('pet/register/', views.register_pet),
+    path('pet/all/', views.list_all_pets, name='home'),
+    path('pet/register/', views.register_pet, name='cadastrar'),
     path('pet/register/submit/', views.set_pet),
     # path('pet/detail/<id>/', views.pet_detail),
     # path('pet/delete/<id>/', views.pet_delete),
 
     path('pet/<action>/<id>/',views.pet_generic),
 
-    path('pet/user/', views.list_user_pets),
+    path('pet/user/', views.list_user_pets, name='meus-pets'),
     path('login/submit/', views.submit_login),
     path('logout/', views.logout_user),
     path('', RedirectView.as_view(url='pet/all/'))

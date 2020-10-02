@@ -1,18 +1,19 @@
 <!DOCTYPE html>
 <html lang="pt">
 <head>
-    {% include "model-head.html" %}
+    {% include "layout/head.html" %}
 </head>
 <body>
 <header>
-    {% include "model-header.html" %}
+    {% include "layout/header.html" %}
 </header>
 {% block style %}{% endblock %}
+
 {% block content %} {% endblock %}
 
 
 <footer>
-    {% include "model-footer.html" %}
+    {% include "layout/footer.html" %}
 </footer>
 </body>
 </html>
