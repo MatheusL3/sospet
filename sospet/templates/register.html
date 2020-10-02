@@ -3,7 +3,7 @@
 {% block content %}
     <h1 class="text-center">Cadastrar Pet para adoção</h1>
     <br>
-    <form enctype="multipart/form-data" action="submit", method="POST">{% csrf_token %}
+    <form enctype="multipart/form-data" action="submit/", method="POST">{% csrf_token %}
         <div class="container">
             <input type="number" class="form-control" name="pet_id" value="{{ pet.id }}" hidden>
             <div class="form-group">
@@ -36,6 +36,7 @@
         </div>
       </form>
       <br>
+
 
 
 {% endblock %}

@@ -17,7 +17,7 @@ from django.contrib import admin
 from django.contrib.staticfiles.urls import static, staticfiles_urlpatterns
 from django.urls import path
 from django.views.generic import RedirectView
-from core import views
+from sospet.core import views
 from . import settings
 
 
