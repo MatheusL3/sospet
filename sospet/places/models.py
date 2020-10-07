@@ -1,6 +1,12 @@
 from django.contrib.auth.models import User
 from django.db import models
 
+class PlacesManager(models.manager):
+    def search(self, query):
+        return self.get_queryset().filter(
+            models.Q(name__icontains=query) | models.Q(description__icontains=query)
+        )
+
 
 class Places(models.Model):
     title = models.CharField(max_length=100)
