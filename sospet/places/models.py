@@ -1,10 +1,12 @@
 from django.contrib.auth.models import User
 from django.db import models
 
+
 class PlacesManager(models.manager):
+
     def search(self, query):
         return self.get_queryset().filter(
-            models.Q(name__icontains=query) | models.Q(description__icontains=query)
+            title__icontains=query, description__icontains=query
         )
 
 
@@ -16,6 +18,7 @@ class Places(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     updated_at = models.DateTimeField(auto_now=True)
     image = models.ImageField(upload_to='places', verbose_name='Imagens')
+    objects = PlacesManager()
 
     def __str__(self):
         return str(self.id)
