@@ -2,7 +2,7 @@ from django.contrib.auth.models import User
 from django.db import models
 
 
-class PlacesManager(models.manager):
+class PlacesManager(models.Manager):
 
     def search(self, query):
         return self.get_queryset().filter(
