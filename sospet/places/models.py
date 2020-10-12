@@ -11,9 +11,9 @@ class PlacesManager(models.Manager):
 
 
 class Places(models.Model):
-    title = models.CharField(max_length=100)
-    slug = models.SlugField()
-    description = models.TextField(blank=True)
+    title = models.CharField('Titulo', max_length=100)
+    slug = models.SlugField('Atalho')
+    description = models.TextField('Descrição', blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     updated_at = models.DateTimeField(auto_now=True)
@@ -21,7 +21,10 @@ class Places(models.Model):
     objects = PlacesManager()
 
     def __str__(self):
-        return str(self.title)
+        return str(self.id)
 
     class Meta:
         db_table = 'places'
+        verbose_name = 'Lugar'
+        verbose_name_plural = 'Lugares'
+        ordering = ['title']
