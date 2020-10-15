@@ -6,5 +6,5 @@ from sospet.places.models import Places
 @admin.register(Places)
 class PlacesAdmin(admin.ModelAdmin):
     list_display = ['id', 'title', 'slug', 'description']
-    search_fields = ['title', 'description']
+    search_fields = ['title']
     prepopulated_fields = {'slug': ['title']}
