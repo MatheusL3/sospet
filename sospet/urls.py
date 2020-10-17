@@ -14,19 +14,12 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.contrib.staticfiles.urls import static, staticfiles_urlpatterns
 from django.urls import path, include
-from django.views.generic import RedirectView
-from sospet.core import views
-from . import settings
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     # path('', RedirectView.as_view(url='pet/all/'))
-    path('', include('sospet.core.urls'))
-
-
+    path('', include('sospet.core.urls')),
+    path('places/', include('sospet.places.urls'))
 ]
-# urlpatterns += staticfiles_urlpatterns()
-# urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_URL)

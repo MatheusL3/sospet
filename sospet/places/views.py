@@ -1,3 +1,6 @@
 from django.shortcuts import render
 
-# Create your views here.
+
+def places(request):
+    template_name = 'places/places.html'
+    return render(request, template_name)
