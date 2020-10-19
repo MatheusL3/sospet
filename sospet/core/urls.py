@@ -11,7 +11,7 @@ from sospet.core import views
 urlpatterns = [
 
     path('login/', views.login_user),
-    path('pet/all/', views.list_all_pets, name='home'),
+    path('pet/all/', views.list_all_pets, name='inicio'),
     path('pet/register/', views.register_pet, name='cadastrar'),
     path('pet/register/submit/', views.set_pet),
     # path('pet/detail/<id>/', views.pet_detail),
